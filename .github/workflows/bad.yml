@@ -2,7 +2,7 @@ name: Test Bad Candidate
 
 on:
   push:
-    branches: [Mainnnnnn]
+    branches: [Main]
   pull_request:
     branches: [Main]
 
