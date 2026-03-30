@@ -1,8 +1,7 @@
-import os, sys
+import os
 from pathlib import Path
 import pandas as pd
 import numpy as np
-from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 
@@ -23,7 +22,9 @@ def impute_age_with_regression(dataframe):
 def train_model(dataframe):
     features = dataframe[["Pclass", "SibSp", "Parch", "Fare"]]
     target = dataframe["Survived"]
-    x_train, x_test, y_train, y_test = train_test_split(features, target, test_size=0.25, random_state=42)
+    x_train, x_test, y_train, y_test = train_test_split(
+        features, target, test_size=0.25, random_state=42
+    )
     model = LogisticRegression(max_iter=100)
     model.fit(x_train, y_train)
     return model, x_test, y_test
